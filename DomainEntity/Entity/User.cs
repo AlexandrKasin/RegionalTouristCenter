@@ -13,5 +13,6 @@ namespace DomainEntity.Entity
         public DateTime DateOfBirth { get; set; }
 
         public ICollection<UserRoles> UserRoles { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }
