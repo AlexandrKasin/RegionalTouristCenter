@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Data.Entity
+namespace DomainEntity.Entity
 {
     public abstract class BaseEntity
     {

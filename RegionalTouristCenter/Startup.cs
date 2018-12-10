@@ -6,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repository.DataModel;
 using Repository.Repository;
+using Services.Services;
+using AutoMapper;
+using Services.Extends;
 
 namespace RegionalTouristCenter
 {
@@ -24,8 +27,12 @@ namespace RegionalTouristCenter
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddAutoMapper();
+
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IAccountService), typeof(AccountService));
+            services.AddScoped(typeof(IEncryptor), typeof(Md5Encryptor));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

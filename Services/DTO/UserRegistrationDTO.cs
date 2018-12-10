@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace DomainEntity.Entity
+namespace Services.DTO
 {
-    public class User : BaseEntity
+    public class UserRegistrationDto
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -11,7 +10,5 @@ namespace DomainEntity.Entity
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
-
-        public ICollection<UserRoles> UserRoles { get; set; }
     }
 }

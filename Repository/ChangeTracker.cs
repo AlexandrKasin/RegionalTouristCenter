@@ -1,5 +1,5 @@
 ﻿using System;
-using Data.Entity;
+using DomainEntity.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 

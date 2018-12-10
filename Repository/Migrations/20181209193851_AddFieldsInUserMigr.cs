@@ -7,7 +7,7 @@ namespace Repository.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<DateTime>(
+           /* migrationBuilder.AddColumn<DateTime>(
                 name: "DateOfBirth",
                 table: "User",
                 nullable: false,
@@ -26,7 +26,7 @@ namespace Repository.Migrations
             migrationBuilder.AddColumn<string>(
                 name: "Surname",
                 table: "User",
-                nullable: true);
+                nullable: true);*/
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
