@@ -12,13 +12,6 @@ namespace Repository.DataModel
         public DbSet<Role> Role { get; set; }
         public DbSet<UserRoles> UserRoles { get; set; }
 
-        public DbSet<TypeTour> TypeTours { get; set; }
-        public DbSet<TypeTransport> TypeTransports { get; set; }
-        public DbSet<Tour> Tours { get; set; }
-        public DbSet<StepTour> StepTours { get; set; }
-        public DbSet<Location> Locations { get; set; }
-        public DbSet<Order> Orders { get; set; }
-
         public DatabaseContext(DbContextOptions options) : base(options)
         {
             Database.EnsureCreated();

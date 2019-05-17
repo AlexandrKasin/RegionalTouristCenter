@@ -45,10 +45,10 @@ namespace Services.Services
             var claims = new List<Claim>
             {
                 new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
             };
             claims.AddRange(
                 user.UserRoles.Select(role => new Claim(ClaimsIdentity.DefaultRoleClaimType, role.Role.Name)));
+
             var claimsIdentity =
                 new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
                     ClaimsIdentity.DefaultRoleClaimType);
@@ -83,7 +83,8 @@ namespace Services.Services
             var response = new TokenDto
             {
                 AccessToken = encodedJwt,
-                Username = identity.Name
+                Username = identity.Name,
+                Role = user.UserRoles.Select((role) => role.Role.Name).ToList()
             };
             return response;
         }
@@ -95,7 +96,7 @@ namespace Services.Services
             if (existsEmail)
             {
                 throw new EmailAlreadyExists("This email already exists.");
-            }           
+            }
 
             var role = await (await _repositoryRole.GetAllAsync(r =>
                 string.Equals(r.Name, "User", StringComparison.CurrentCultureIgnoreCase))).FirstOrDefaultAsync();
@@ -109,7 +110,8 @@ namespace Services.Services
                     .FirstOrDefaultAsync();
             if (systemUser == null)
             {
-                throw new EntityNotExistException("System user with email: " + _configuration["EmailSystemUser"] + "not exist");
+                throw new EntityNotExistException("System user with email: " + _configuration["EmailSystemUser"] +
+                                                  "not exist");
             }
 
             user.CreatedBy = systemUser.Id;
