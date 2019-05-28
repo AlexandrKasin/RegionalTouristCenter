@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using DomainEntity.Entity.User;
 
-namespace DomainEntity.Entity
+namespace DomainEntity.Entity.User
 {
     public class Role : BaseEntity
     {

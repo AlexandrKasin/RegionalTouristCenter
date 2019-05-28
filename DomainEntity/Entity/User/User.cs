@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DomainEntity.Entity
+namespace DomainEntity.Entity.User
 {
     public class User : BaseEntity
     {

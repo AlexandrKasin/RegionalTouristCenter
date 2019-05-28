@@ -24,12 +24,12 @@ namespace RegionalTouristCenter
         }
 
         public IConfiguration Configuration { get; }
- 
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAutoMapper();
             services.AddHttpContextAccessor();
             services.AddSession();
@@ -47,7 +47,7 @@ namespace RegionalTouristCenter
                         IssuerSigningKey =
                             new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["AuthOption:Key"])),
                         ValidateIssuerSigningKey = true,
-                    };                 
+                    };
                 });
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

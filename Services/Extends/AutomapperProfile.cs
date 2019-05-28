@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DomainEntity.Entity;
+using DomainEntity.Entity.User;
 using Services.DTO;
 
 namespace Services.Extends
