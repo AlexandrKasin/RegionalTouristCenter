@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.IdentityModel.Tokens;
 using Services.Extends;
+using Services.Services.UserService;
 
 namespace RegionalTouristCenter
 {
@@ -53,6 +54,7 @@ namespace RegionalTouristCenter
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IAccountService), typeof(AccountService));
             services.AddScoped(typeof(IEncryptor), typeof(Md5Encryptor));
+            services.AddScoped(typeof(ITourService), typeof(TourService));
 
             services.AddCors(o => o.AddPolicy("Allow-Origin", builder =>
             {

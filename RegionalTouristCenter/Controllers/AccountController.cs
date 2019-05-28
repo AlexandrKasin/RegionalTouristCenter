@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Services.DTO;
 using Services.Exceptions;
 using Services.Services;
+using Services.Services.UserService;
 
 namespace RegionalTouristCenter.Controllers
 {

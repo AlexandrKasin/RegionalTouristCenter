@@ -14,9 +14,10 @@ using Repository.Repository;
 using Services.DTO;
 using Services.Exceptions;
 using Services.Extends;
+using Services.Services.UserService;
 
 
-namespace Services.Services
+namespace Services.Services.UserService
 {
     public class AccountService : IAccountService
     {

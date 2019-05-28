@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Services.DTO;
 
-namespace Services.Services
+namespace Services.Services.UserService
 {
     public interface IAccountService
     {
