@@ -12,9 +12,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Repository.Repository;
 using Services.DTO;
+using Services.DTO.User;
 using Services.Exceptions;
 using Services.Extends;
-using Services.Services.UserService;
 
 
 namespace Services.Services.UserService
@@ -56,7 +56,7 @@ namespace Services.Services.UserService
             return claimsIdentity;
         }
 
-        public async Task<TokenDto> LoginAsync(LoginDto loginParams)
+        public async Task<TokenDTO> LoginAsync(LoginDTO loginParams)
         {
             loginParams.Password = _encryptor.GetHash(loginParams.Password);
             var user = await (await _repositoryUser.GetAllAsync(t =>
@@ -81,7 +81,7 @@ namespace Services.Services.UserService
                     SecurityAlgorithms.HmacSha256));
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
 
-            var response = new TokenDto
+            var response = new TokenDTO
             {
                 AccessToken = encodedJwt,
                 Username = identity.Name,
@@ -90,7 +90,7 @@ namespace Services.Services.UserService
             return response;
         }
 
-        public async Task<TokenDto> RegisterUserAsync(UserRegistrationDto userParams)
+        public async Task<TokenDTO> RegisterUserAsync(UserRegistrationDTO userParams)
         {
             var user = _mapper.Map<User>(userParams);
             var existsEmail = await (await _repositoryUser.GetAllAsync(t => t.Email == user.Email)).AnyAsync();
@@ -119,7 +119,7 @@ namespace Services.Services.UserService
             user.Password = _encryptor.GetHash(user.Password);
             await _repositoryUserRoles.InsertAsync(new UserRoles {User = user, Role = role, CreatedBy = systemUser.Id});
 
-            var token = await LoginAsync(new LoginDto
+            var token = await LoginAsync(new LoginDTO
             {
                 Email = user.Email,
                 Password = userParams.Password

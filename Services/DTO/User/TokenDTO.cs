@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Services.DTO
+namespace Services.DTO.User
 {
-    public class TokenDto
+    public class TokenDTO
     {
         public string AccessToken { get; set; }
         public string Username { get; set; }

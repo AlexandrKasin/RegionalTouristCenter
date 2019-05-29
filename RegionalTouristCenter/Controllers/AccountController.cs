@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.DTO;
+using Services.DTO.User;
 using Services.Exceptions;
-using Services.Services;
 using Services.Services.UserService;
 
 namespace RegionalTouristCenter.Controllers
@@ -20,7 +19,7 @@ namespace RegionalTouristCenter.Controllers
         }
 
         [HttpPost("/login")]
-        public async Task<IActionResult> Login(LoginDto loginParams)
+        public async Task<IActionResult> Login(LoginDTO loginParams)
         {
             try
             {
@@ -31,16 +30,15 @@ namespace RegionalTouristCenter.Controllers
             {
                 return StatusCode(401, e.Message);
             }
-           
+
             catch (Exception e)
             {
                 return BadRequest(e.Message);
             }
-          
         }
 
         [HttpPost("/register")]
-        public async Task<IActionResult> Register(UserRegistrationDto userRegistration)
+        public async Task<IActionResult> Register(UserRegistrationDTO userRegistration)
         {
             try
             {
@@ -56,7 +54,6 @@ namespace RegionalTouristCenter.Controllers
             {
                 return BadRequest(e.Message);
             }
-
         }
     }
 }

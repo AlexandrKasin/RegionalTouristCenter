@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.IdentityModel.Tokens;
 using Services.Extends;
+using Services.Services.TourService;
 using Services.Services.UserService;
 
 namespace RegionalTouristCenter

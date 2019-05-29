@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace DomainEntity.Entity.Tour
 {
@@ -11,5 +9,6 @@ namespace DomainEntity.Entity.Tour
         public ICollection<DatesPrices> DatesPrices { get; set; }
         public ICollection<TourDescription> TourDescriptions { get; set; }
         public ICollection<TourImages> TourImages { get; set; }
+        public ICollection<TourItinerary> TourItineraries { get; set; }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
-using DomainEntity.Entity;
+using DomainEntity.Entity.Tour;
 using DomainEntity.Entity.User;
-using Services.DTO;
+using Services.DTO.Tour;
+using Services.DTO.User;
 
 namespace Services.Extends
 {
@@ -9,8 +10,14 @@ namespace Services.Extends
     {
         public AutomapperProfile()
         {
-            CreateMap<UserRegistrationDto, User>();
-          
+            CreateMap<UserRegistrationDTO, User>();
+
+            CreateMap<DatesPricesDTO, DatesPrices>();
+            CreateMap<LanguageDTO, Language>();
+            CreateMap<TourDescriptionDTO, TourDescription>();
+            CreateMap<TourDTO, Tour>();
+            CreateMap<TourImagesDTO, TourImages>();
+            CreateMap<TourItineraryDTO, TourItinerary>();
         }
     }
 }

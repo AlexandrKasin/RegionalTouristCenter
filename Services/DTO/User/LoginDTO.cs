@@ -3,7 +3,7 @@
 
 namespace Services.DTO
 {
-    public class LoginDto
+    public class LoginDTO
     {
         [Required]
         public string Email { get; set; }

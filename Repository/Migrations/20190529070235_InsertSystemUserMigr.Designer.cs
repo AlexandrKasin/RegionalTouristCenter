@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository.DataModel;
 
 namespace Repository.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20190529070235_InsertSystemUserMigr")]
+    partial class InsertSystemUserMigr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -170,13 +172,9 @@ namespace Repository.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<long?>("TourId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("LanguageId");
-
-                    b.HasIndex("TourId");
 
                     b.ToTable("TourItineraries");
                 });
@@ -296,10 +294,6 @@ namespace Repository.Migrations
                     b.HasOne("DomainEntity.Entity.Tour.Language", "Language")
                         .WithMany("TourItineraries")
                         .HasForeignKey("LanguageId");
-
-                    b.HasOne("DomainEntity.Entity.Tour.Tour", "Tour")
-                        .WithMany("TourItineraries")
-                        .HasForeignKey("TourId");
                 });
 
             modelBuilder.Entity("DomainEntity.Entity.User.UserRoles", b =>
