@@ -10,5 +10,6 @@ namespace DomainEntity.Entity.Tour
         public ICollection<TourDescription> TourDescriptions { get; set; }
         public ICollection<TourImages> TourImages { get; set; }
         public ICollection<TourItinerary> TourItineraries { get; set; }
+        public TypeTour TypeTour { get; set; }
     }
 }
